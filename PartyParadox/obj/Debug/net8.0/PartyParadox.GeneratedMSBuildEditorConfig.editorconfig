@@ -1,0 +1,121 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PartyParadox
+build_property.RootNamespace = PartyParadox
+build_property.ProjectDir = C:\Users\Lucas\Desktop\PartyParadox\PartyParadox\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Lucas\Desktop\PartyParadox\PartyParadox
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/CreateGame.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlR2FtZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/JoinGame.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9pbkdhbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/Likeability.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlrZWFiaWxpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/likeability/Answer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbGlrZWFiaWxpdHlcQW5zd2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/likeability/Prompt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbGlrZWFiaWxpdHlcUHJvbXB0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/likeability/Score.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbGlrZWFiaWxpdHlcU2NvcmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/likeability/View.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbGlrZWFiaWxpdHlcVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/likeability/Vote.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbGlrZWFiaWxpdHlcVm90ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/Shared/_loading.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9sb2FkaW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/TOS.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVE9TLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/Wavelength.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2F2ZWxlbmd0aC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/wavelength/AnswerO.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2F2ZWxlbmd0aFxBbnN3ZXJPLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/wavelength/AnswerU.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2F2ZWxlbmd0aFxBbnN3ZXJVLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/wavelength/BfinalScore.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2F2ZWxlbmd0aFxCZmluYWxTY29yZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/wavelength/BguessAnswer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2F2ZWxlbmd0aFxCZ3Vlc3NBbnN3ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/wavelength/Bprompts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2F2ZWxlbmd0aFxCcHJvbXB0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/wavelength/ChooseNum.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2F2ZWxlbmd0aFxDaG9vc2VOdW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/wavelength/FinalScore.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2F2ZWxlbmd0aFxGaW5hbFNjb3JlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/wavelength/Score.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2F2ZWxlbmd0aFxTY29yZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/Desktop/PartyParadox/PartyParadox/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-6wl02fomi5

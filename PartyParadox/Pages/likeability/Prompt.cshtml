@@ -1,0 +1,124 @@
+@page
+@model PartyParadox.Pages.LikePromptModel
+@{
+    ViewData["Title"] = "LikePrompt Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/likeability.css">
+    <link rel="stylesheet" href="../css/titleLike.css">
+    <link rel="stylesheet" href="../css/likeability/game.css">
+   
+</head>
+
+<audio id="like-audio" src="/audio/likeBackground.mp3" loop></audio>
+
+<body class="css-selector">
+    <h1>
+        <span>L</span><span>I</span><span>K</span><span>E</span><span>A</span>
+        <span>B</span><span>I</span><span>L</span><span>I</span><span>T</span><span>Y</span>
+    </h1>
+
+    <audio id="background-audio" loop></audio>
+
+    <div class="contentSection">
+        <!-- User List -->
+        <div class="userList">
+            @foreach (var user in Model.Users)
+            {
+                <div class="user">
+                    <div class="player-circle" data-user-id="@user.ID" data-session-id="@Model.SessionCode">
+                        <img src="/@user.Image" alt="@user.Name">
+                        <span>@user.Name</span>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Black Divider Line -->
+        <div class="divider"></div>
+
+        <!-- Interaction Section -->
+        <div class="interactionSection">
+            <div class="timer" id="timer">45</div>
+            <h2>Write some prompts!</h2>
+            <p>These can be anything from objects, people, places, etc.</p>
+
+            <form method="post" id="wordForm">
+                <input type="hidden" name="UserName" value="@Model.UserID">
+                <input type="text" id="word-input" name="Word" placeholder="You can make up to 3 things" required />
+                <button type="submit" id="submitButton">Submit</button>
+            </form>
+
+            <div class="textLog" id="wordLog">
+                <h3>Your Words:</h3>
+                @foreach (var word in Model.UserWords)
+                {
+                    <p>@word.Word</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputField = document.getElementById("word-input");
+            const submitButton = document.getElementById("submitButton");
+            const wordLog = document.getElementById("wordLog");
+            const form = document.getElementById("wordForm");
+            let countdown = 45;
+            const timerElement = document.getElementById('timer');
+            const progressBar = document.getElementById('progress-bar');
+
+            function updateWordLimit() {
+                const wordsCount = wordLog.querySelectorAll("p").length;
+                console.log("Current word count:", wordsCount);
+                inputField.disabled = wordsCount >= 3;
+                submitButton.disabled = wordsCount >= 3;
+            }
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                if (wordLog.querySelectorAll("p").length >= 3) {
+                    return;
+                }
+
+                const formData = new FormData(form);
+                fetch(form.action, {
+                    method: "POST",
+                    body: formData
+                }).then(response => response.text())
+                  .then(word => {
+                      const newWord = document.createElement("p");
+                      newWord.textContent = formData.get("Word");
+                      wordLog.appendChild(newWord);
+                      updateWordLimit();
+                      inputField.value = "";
+                  });
+            });
+
+            updateWordLimit();
+
+            const interval = setInterval(() => {
+                if (countdown > 0) {
+                    countdown--;
+                    timerElement.textContent = countdown;
+                    progressBar.style.width = (countdown / 45) * 100 + "%";
+                    console.log("Timer updated:", countdown);
+                } else {
+                    clearInterval(interval);
+                    console.log("Timer finished, redirecting...");
+                    window.location.href = "@Url.Page("/Likeability/Answer", new { sessionCode = Model.SessionCode })";
+                }
+            }, 1000);
+        });
+    </script>
+
+    <script src="js/audio.js"></script>
+</body>
+</html>

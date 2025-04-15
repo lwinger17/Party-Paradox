@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PartyParadox</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="~/css/layout.css">
+</head>
+<body>
+
+<!-- Audio -->
+<audio id="background-audio" loop>
+    Your browser does not support the audio element.
+</audio>
+
+<!-- Audio Toggle Icon -->
+<div class="audio-toggle" id="audio-toggle">
+    <img src="~/img/audio.png" alt="Audio On" id="audio-icon">
+</div>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer>
+        <a href="#contact">Contact</a>
+        <a asp-page="/TOS" target="_blank">Terms of Service</a>
+        <small>The owner of this site is not responsible for any user-generated content (drawings, messages, usernames).</small>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+  <script src="~/js/audio.js"></script>
+
+</html>

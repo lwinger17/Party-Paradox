@@ -1,0 +1,126 @@
+body {
+    padding-bottom: 500px; /* Add padding to the bottom of the page */
+    margin: 0;
+}
+
+/* Title Section */
+.title-section svg {
+    width: 100%;
+    height: auto;
+}
+
+/* Room Creation Section */
+.roomCreate {
+    background-color: black;
+    color: white;
+    padding: 60px;
+    width: 80%;
+    max-width: 500px;
+    margin: 50px auto;
+    border-radius: 10px;
+    padding-bottom: 80px;
+}
+
+/* Header for room creation form */
+.roomCreate h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: none; /* Remove the border */
+    padding: 0; /* Remove any padding */
+    margin: 0; /* Remove any margin */
+}
+
+/* Styling for form inputs */
+.roomCreate input[type="text"],
+.roomCreate input[type="range"],
+.roomCreate select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Styling for game choice buttons */
+.gameChoice {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+/* Default styling for game choice buttons */
+.gameChoiceButton {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #333; 
+    color: white;
+    border: 2px solid #333;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+/* Active (selected) styles */
+.gameChoiceInput:checked + .gameChoiceButton {
+    color: white;
+}
+
+/* Likeability (orange) */
+.gameChoiceInput[value="likeability"]:checked + .gameChoiceButton {
+    background-color: orange;
+    border-color: orange;
+}
+
+/* Rating Roundabout (purple) */
+.gameChoiceInput[value="wavelength"]:checked + .gameChoiceButton {
+    background-color: purple;
+    border-color: purple;
+}
+
+
+
+/* Add space between the buttons */
+.gameChoice button + button {
+    margin-left: 0%;
+}
+
+/* Button hover effects */
+#likeability:hover,
+#rating:hover {
+    opacity: 0.9;
+}
+
+/* Styling for submit button */
+.roomCreate button {
+    width: 100%;
+    padding: 15px;
+    background-color: rgb(29, 218, 155);
+    color: black;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#slider-value {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+
+/* Submit button hover effect */
+.roomCreate button:hover {
+    background-color: rgb(39, 224, 97);
+}
+
+

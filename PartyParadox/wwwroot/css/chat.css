@@ -1,0 +1,124 @@
+/* Root CSS Variables for User Colors */
+:root {
+    --user-color-1: #f6846a;
+    --user-color-2: #67e97f;
+    --user-color-3: #6680f3;
+    --user-color-4: #f4d971;
+    --user-color-5: #ce7ef0;
+    --user-color-6: #71e3cc;
+    --user-color-7: #e58074;
+    --user-color-8: #69aad6;
+    --user-color-9: #5fc489;
+    --user-color-10: #ae6fc8;
+    --user-color-11: #ba906b;
+    --user-color-12: #8b9596;
+}
+
+/* Chat Box Container */
+.chat-box {
+    width: 90%; /* Set a fixed width, 70% of the container or any desired value */
+    overflow-y: auto;
+    max-width: 900px; /* Optional: set a max-width to avoid becoming too large on wider screens */
+    height: 300px; /* Decreased height */
+    border: 2.5px solid #000; /* Black border for outline */
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px; /* Added more padding to the sides */
+    margin: 10px auto; /* Centers the chat box horizontally with space on top and bottom */
+    border-radius: 4px; /* Optional: adds rounded corners to the border */
+    box-sizing: border-box; /* Ensures padding doesn't affect the width calculation */
+}
+
+/* Chat Input Section */
+.chat-input-section {
+    display: flex;
+    margin-top: 10px;
+}
+
+.chat-input {
+    width: 85%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.chat-send-btn {
+    padding: 10px;
+    background-color: #279429;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .chat-send-btn:hover {
+        background-color: #45d329;
+    }
+
+/* Chat Message Styling */
+.chat-message {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #fff;
+    max-width: 80%;
+}
+
+/* User and Self Message Styling */
+.Chatuser-bubble {
+    background-color: #ffffff;
+    color: var(--user-color-1);
+}
+
+.Chatself-bubble {
+    background-color: #fff5f5;
+    color: var(--user-color-2); 
+}
+
+/* Specific User Styling (based on colors) */
+.Chatuser-message {
+    align-self: flex-start;
+    background-color: var(--user-color-1); /* Default color, can be dynamically overwritten */
+}
+
+.Chatself-message {
+    align-self: flex-end;
+    background-color: var(--user-color-2); /* Default color, can be dynamically overwritten */
+}
+
+
+/* Timestamp for messages */
+.timestamp {
+    font-size: 0.8em;
+    color: #888;
+    margin-left: 5px;
+}
+
+/* Chat Message for Different Users */
+.Chatuser-message,
+.Chatself-message {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+
+/* Ensuring the chat scrolls automatically */
+.chat-box {
+    overflow-y: auto;
+    height: 300px;
+}
+
+.chat-message {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.chat-input-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}

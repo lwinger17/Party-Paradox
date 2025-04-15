@@ -1,0 +1,433 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PartyParadox.bundle.scp.css",
+      "PackagePath": "staticwebassets\\PartyParadox.uyrfw2f8mr.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\UserImgs\\3a2711df-f031-4ba2-b839-9be04249c50a.png",
+      "PackagePath": "staticwebassets\\UserImgs\\3a2711df-f031-4ba2-b839-9be04249c50a.png"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\UserImgs\\4d301e4c-d170-4077-94a8-086e6f579121.png",
+      "PackagePath": "staticwebassets\\UserImgs\\4d301e4c-d170-4077-94a8-086e6f579121.png"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\UserImgs\\907d8b07-6086-41cd-a081-6a5e97a9b598.png",
+      "PackagePath": "staticwebassets\\UserImgs\\907d8b07-6086-41cd-a081-6a5e97a9b598.png"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\UserImgs\\Default.png",
+      "PackagePath": "staticwebassets\\UserImgs\\Default.png"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\UserImgs\\e6344b29-5416-49bb-b953-b7d8b0b4aa8d.png",
+      "PackagePath": "staticwebassets\\UserImgs\\e6344b29-5416-49bb-b953-b7d8b0b4aa8d.png"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\UserImgs\\user.png",
+      "PackagePath": "staticwebassets\\UserImgs\\user.png"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\audio\\BackgroundHome.mp3",
+      "PackagePath": "staticwebassets\\audio\\BackgroundHome.mp3"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\audio\\backgroundComic.mp3",
+      "PackagePath": "staticwebassets\\audio\\backgroundComic.mp3"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\audio\\basicClick.mp3",
+      "PackagePath": "staticwebassets\\audio\\basicClick.mp3"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\audio\\likeBackground.mp3",
+      "PackagePath": "staticwebassets\\audio\\likeBackground.mp3"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\audio\\profileJoin.mp3",
+      "PackagePath": "staticwebassets\\audio\\profileJoin.mp3"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\audio\\profileLeave.mp3",
+      "PackagePath": "staticwebassets\\audio\\profileLeave.mp3"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\audio\\waveBackground.mp3",
+      "PackagePath": "staticwebassets\\audio\\waveBackground.mp3"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\chat.css",
+      "PackagePath": "staticwebassets\\css\\chat.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\countdown.css",
+      "PackagePath": "staticwebassets\\css\\countdown.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\createScreen.css",
+      "PackagePath": "staticwebassets\\css\\createScreen.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\index.css",
+      "PackagePath": "staticwebassets\\css\\index.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\joinScreen.css",
+      "PackagePath": "staticwebassets\\css\\joinScreen.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\layout.css",
+      "PackagePath": "staticwebassets\\css\\layout.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\likeability.css",
+      "PackagePath": "staticwebassets\\css\\likeability.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\likeability\\game.css",
+      "PackagePath": "staticwebassets\\css\\likeability\\game.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\likeability\\score.css",
+      "PackagePath": "staticwebassets\\css\\likeability\\score.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\likeability\\textBubble.css",
+      "PackagePath": "staticwebassets\\css\\likeability\\textBubble.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\loading.css",
+      "PackagePath": "staticwebassets\\css\\loading.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\title.css",
+      "PackagePath": "staticwebassets\\css\\title.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\titleLike.css",
+      "PackagePath": "staticwebassets\\css\\titleLike.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\titleWave.css",
+      "PackagePath": "staticwebassets\\css\\titleWave.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\wavelength.css",
+      "PackagePath": "staticwebassets\\css\\wavelength.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\wavelength\\game.css",
+      "PackagePath": "staticwebassets\\css\\wavelength\\game.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\wavelength\\score.css",
+      "PackagePath": "staticwebassets\\css\\wavelength\\score.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\css\\wavelength\\textBubble.css",
+      "PackagePath": "staticwebassets\\css\\wavelength\\textBubble.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\img\\audio.png",
+      "PackagePath": "staticwebassets\\img\\audio.png"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\img\\audioOff.png",
+      "PackagePath": "staticwebassets\\img\\audioOff.png"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\img\\back.png",
+      "PackagePath": "staticwebassets\\img\\back.png"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\js\\InactivityDetector.js",
+      "PackagePath": "staticwebassets\\js\\InactivityDetector.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\js\\audio.js",
+      "PackagePath": "staticwebassets\\js\\audio.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\js\\chat.js",
+      "PackagePath": "staticwebassets\\js\\chat.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\js\\loading.js",
+      "PackagePath": "staticwebassets\\js\\loading.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\js\\lobby.js",
+      "PackagePath": "staticwebassets\\js\\lobby.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\js\\redirectGameL.js",
+      "PackagePath": "staticwebassets\\js\\redirectGameL.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\js\\redirectGameW.js",
+      "PackagePath": "staticwebassets\\js\\redirectGameW.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Lucas\\Desktop\\PartyParadox\\PartyParadox\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PartyParadox.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PartyParadox.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.PartyParadox.props",
+      "PackagePath": "build\\PartyParadox.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.PartyParadox.props",
+      "PackagePath": "buildMultiTargeting\\PartyParadox.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.PartyParadox.props",
+      "PackagePath": "buildTransitive\\PartyParadox.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,100 @@
+html,
+body {
+  background-color: #222;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.bubbleSpeech {
+  position: relative;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: auto;
+  line-height: 22px;
+  letter-spacing: 1px;
+  margin-top: 16px;
+  margin-bottom: 48px;
+  width: 300px;
+  background-color: #efefef;
+  padding: 16px;
+  cursor: pointer; /* Make the bubble clickable */
+  border-radius: 12px; /* Add rounded corners to bubbles */
+}
+
+.bubbleSpeech.bubbleLeft {
+  background-color: #add8e6; /* Light blue background for left */
+}
+
+.bubbleSpeech.bubbleRight {
+  background-color: #90ee90; /* Light green background for right */
+}
+
+.bubbleSpeech.bubbleLeft:after {
+  z-index: 9002;
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  left: 0;
+  border-top: 0 #add8e6 solid; /* Match left background color */
+  border-bottom: 12px transparent solid;
+  border-left: 20px #add8e6 solid; /* Match left background color */
+}
+
+.bubbleSpeech.bubbleCenter:after {
+  z-index: 9002;
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  left: 50%;
+  margin-left: -18px;
+  border-right: 20px transparent solid;
+  border-top: 12px #efefef solid;
+  border-left: 20px transparent solid;
+}
+
+.bubbleSpeech.bubbleRight:after {
+  z-index: 9002;
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  right: 0;
+  border-top: 0 #90ee90 solid; /* Match right background color */
+  border-bottom: 12px transparent solid;
+  border-right: 20px #90ee90 solid; /* Match right background color */
+}
+
+.bubbleSpeech .author {
+  max-width: 200px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0 12px 2px 0;
+}
+
+.bubbleSpeech .number-circle {
+  position: absolute;
+  top: -8px;
+  right: -8px; /* For Left bubble, position the number to top-right */
+  width: 30px;  /* Increase size */
+  height: 30px; /* Increase size */
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid black;
+  font-size: 14px;  /* Increase font size */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubbleSpeech.bubbleRight .number-circle {
+  top: -8px;
+  left: -8px; /* For Right bubble, position the number to top-left */
+}
+
+
+.bubbleSpeech {
+  flex-grow: 1;
+}

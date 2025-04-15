@@ -1,0 +1,77 @@
+html,
+body {
+  background-color: #222;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.bubble-speech {
+  position: relative;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: auto;
+  line-height: 22px;
+  letter-spacing: 1px;
+  margin-top: 16px;
+  margin-bottom: 48px;
+  width: 300px;
+  background-color: #efefef;
+  padding: 16px;
+}
+
+.bubble-speech.bubble-left {
+  background-color: #add8e6; /* Light blue background for left */
+}
+
+.bubble-speech.bubble-right {
+  background-color: #90ee90; /* Light green background for right */
+}
+
+.bubble-speech.bubble-left:after {
+  z-index: 9002;
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  left: 0;
+  border-top: 0 #add8e6 solid; /* Match left background color */
+  border-bottom: 12px transparent solid;
+  border-left: 20px #add8e6 solid; /* Match left background color */
+}
+
+.bubble-speech.bubble-center:after {
+  z-index: 9002;
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  left: 50%;
+  margin-left: -18px;
+  border-right: 20px transparent solid;
+  border-top: 12px #efefef solid;
+  border-left: 20px transparent solid;
+}
+
+.bubble-speech.bubble-right:after {
+  z-index: 9002;
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  right: 0;
+  border-top: 0 #90ee90 solid; /* Match right background color */
+  border-bottom: 12px transparent solid;
+  border-right: 20px #90ee90 solid; /* Match right background color */
+}
+
+.bubble-speech .author {
+  max-width: 200px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0 12px 2px 0;
+}
+
+.bubble-speech {
+    flex-grow: 1;
+}
+

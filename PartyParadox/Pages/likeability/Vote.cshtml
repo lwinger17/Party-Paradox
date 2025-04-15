@@ -1,0 +1,148 @@
+@page
+@model LikeVoteModel
+@{
+    ViewData["Title"] = "LikeVote page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/likeability.css">
+    <link rel="stylesheet" href="../css/titleLike.css">
+    <link rel="stylesheet" href="../css/likeability/game.css">
+    <link rel="stylesheet" href="../css/likeability/textBubble.css">
+</head>
+<body class="css-selector">
+    <h1>
+        <span>L</span>
+        <span>I</span>
+        <span>K</span>
+        <span>E</span>
+        <span>A</span>
+        <span>B</span>
+        <span>I</span>
+        <span>L</span>
+        <span>I</span>
+        <span>T</span>
+        <span>Y</span>
+    </h1>
+
+    <audio id="like-audio" src="/audio/likeBackground.mp3" loop></audio>
+
+    <div class="contentSection">
+        <div class="infoSection">
+            @foreach (var response in Model.UserResponses)
+            {
+                <div class="userMessage">
+                    <form class="vote-form" method="post" asp-page="LikeVote">
+                        <input type="hidden" name="AnswerID" value="@response.AnswerID" />
+                        <button type="submit"
+                                class="bubbleSpeech @(response.UserID != Model.UserID ? "bubbleLeft" : "bubbleRight") vote-button"
+                                data-answerid="@response.AnswerID">
+                            <span class="number-circle" id="vote-count-@response.AnswerID">@response.Vote</span>
+                            @response.AnswerText
+                        </button>
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div class="divider"></div>
+        <div class="interactionSection">
+            <div class="timer" id="timer">30</div>
+            <h2>Vote on answers you liked the most!</h2>
+            <p id="vote-count">
+                Votes left: <strong id="vote-remaining">3</strong>
+            </p>
+        </div>
+    </div>
+    <script>
+                 document.addEventListener("DOMContentLoaded", function () {
+            let votesLeft = 3; // Track remaining votes
+            const voteForms = document.querySelectorAll(".vote-form");
+            const voteRemainingDisplay = document.getElementById("vote-remaining");
+
+            function updateVotesLeft() {
+                voteRemainingDisplay.textContent = votesLeft;
+            }
+
+            function disableVoting() {
+                voteForms.forEach(form => {
+                    form.querySelector("button").disabled = true;
+                });
+            }
+
+            voteForms.forEach(form => {
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault(); // Prevent page refresh
+
+                    if (votesLeft <= 0) return; // Stop if no votes left
+
+                    const formData = new FormData(form);
+                    const answerId = formData.get("AnswerID");
+                    const voteCountElement = document.getElementById("vote-count-" + answerId);
+
+                    // Send the vote asynchronously
+                    fetch(form.action, {
+                        method: "POST",
+                        body: formData
+                    }).then(response => response.text())
+                      .then(() => {
+                          // Update the UI
+                          let currentVotes = parseInt(voteCountElement.textContent, 10);
+                          voteCountElement.textContent = currentVotes + 1;
+
+                          votesLeft--;
+                          updateVotesLeft();
+
+                          if (votesLeft <= 0) {
+                              disableVoting();
+                          }
+                      }).catch(error => console.error("Error:", error));
+                });
+            });
+
+            updateVotesLeft();
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const timerElem = document.getElementById('timer');
+
+            // Start the countdown timer
+            function startTimer() {
+                let timeLeft = 30;
+
+                const countdown = setInterval(() => {
+                    if (timeLeft <= 0) {
+                        clearInterval(countdown);
+
+                        // Redirection after timer ends, based on the vote visit count
+                        let visitCount = sessionStorage.getItem("voteVisitCount") || 0;
+                        visitCount++;
+                        sessionStorage.setItem("voteVisitCount", visitCount);
+
+                        // Redirect to the next page based on the visit count
+                        if (visitCount >= 3) {
+                            sessionStorage.removeItem("voteVisitCount");
+                            window.location.href = "@Url.Page("/likeability/Score", new { sessionCode = Model.SessionCode })";
+                        } else {
+                            window.location.href = "@Url.Page("/likeability/Answer", new { sessionCode = Model.SessionCode })";
+                        }
+                    } else {
+                        timerElem.textContent = timeLeft;
+                        timeLeft--;
+                    }
+                }, 1000);
+            }
+
+            startTimer();
+        });
+    </script>
+
+
+    <script src="../js/audio.js"></script>
+</body>
+</html>

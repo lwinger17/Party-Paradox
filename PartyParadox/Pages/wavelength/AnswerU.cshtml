@@ -1,0 +1,136 @@
+@page
+@{
+    ViewData["Title"] = "WaveAnsYou page";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/wavelength.css">
+    <link rel="stylesheet" href="../css/titleWave.css">
+    <link rel="stylesheet" href="../css/wavelength/game.css">
+    <link rel="stylesheet" href="../css/wavelength/textBubble.css">
+    <style>
+
+    .number-display {
+        font-size: 72px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #9a3dc9;
+    }
+
+    .content-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    }
+
+    .user-section {
+        flex: 1; /* Push to the left side */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-list {
+        flex: 1; /* Center the user-list */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 20px; /* Adjust spacing from the user-section */
+    }
+
+    .bubble-speech.bubble-left {
+        background-color: #d9a5eb ; /* Light blue background for left */
+    }
+
+    .bubble-speech.bubble-left:after {
+        border-top: 0 #d9a5eb solid; /* Match left background color */
+        border-left: 20px #d9a5eb solid; /* Match left background color */
+    }
+
+    </style>
+</head>
+<audio id="wave-audio" src="/audio/waveBackground.mp3" loop></audio>
+
+<body class="css-selector">
+    <div class="container">
+        <h2 class="title">
+            <span class="title-word title-word-1">Rating</span>
+            <span class="title-word title-word-2">Roundabout</span>
+        </h2>
+    </div>
+
+    <div class="content-section">
+        <!-- User List -->
+        <div class="user-section">
+            <!-- Blinded User -->
+            <div class="blindedUser">
+                <div class="user">
+                    <img src="blindUser.png" alt="Blind User">
+                    <span>Blinded User</span>
+                </div>
+            </div>
+            <div class="bubble-speech bubble-left">Bars in Fargo?</div>
+            <!-- Other Users -->
+            <div class="user-list">
+                <div class="user-message">
+                    <div class="bubble-speech bubble-right">Micks</div>
+                    <div class="user">
+                        <img src="user2.png" alt="User 2">
+                        <span>You</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Interaction Section -->
+        <div class="interaction">
+            <div class="timer" id="timer">45</div>
+            <div class="number-display" id="number-display">5</div>
+            <h2>Try and correspond your answer to the number!</h2>
+            <input type="text" id="user-input" placeholder="Type your answer here">
+            <button id="submit-button" onclick="submitAnswer()">Submit</button>
+        </div>
+    </div>
+    
+    <script>
+        let countdown = 30;
+        const timerElement = document.getElementById('timer');
+        const numberDisplay = document.getElementById('number-display');
+
+
+        const interval = setInterval(() => {
+            if (countdown > 0) {
+                countdown--;
+                timerElement.textContent = countdown;
+                timerElement.style.opacity = countdown / 45;
+            } else {
+                clearInterval(interval);
+            }
+        }, 1000);
+
+        function submitAnswer() {
+            const inputElement = document.getElementById('user-input');
+            const input = inputElement.value.trim(); // Trim whitespace
+            const submitButton = document.getElementById('submit-button');
+
+            // Validate input
+            if (input) {
+                alert(`You entered: ${input}`);
+                inputElement.value = '';
+                submitButton.textContent = "Change Answer";
+            } else {
+                alert("Please enter a valid answer.");
+                inputElement.value = ''; // Clear the input
+            }
+        }
+    </script>
+     <script src="js/audio.js"></script>
+</body>
+</html>

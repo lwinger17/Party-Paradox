@@ -1,0 +1,153 @@
+@page
+@model PartyParadox.Pages.LikeViewModel
+
+@{
+    ViewData["Title"] = "LikeView Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/likeability.css">
+    <link rel="stylesheet" href="../css/titleLike.css">
+    <link rel="stylesheet" href="../css/likeability/game.css">
+    <link rel="stylesheet" href="../css/likeability/textBubble.css">
+    <style>
+        .infoSection {
+            opacity: 0;
+            animation: fadeInInfo 3s forwards;
+            animation-delay: 1s;
+        }
+
+        .userMessage {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        .bubbleSpeech {
+            opacity: 0;
+            animation: bubblePop 1s forwards;
+        }
+
+        @@-webkit-keyframes fadeInInfo {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @@-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @@-webkit-keyframes bubblePop {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @@-webkit-media (max-width: 768px) {
+            .contentSection {
+                flex-direction: column-reverse;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+
+<audio id="like-audio" src="/audio/likeBackground.mp3" loop></audio>
+
+<body class="css-selector">
+    <h1>
+        <span>L</span>
+        <span>I</span>
+        <span>K</span>
+        <span>E</span>
+        <span>A</span>
+        <span>B</span>
+        <span>I</span>
+        <span>L</span>
+        <span>I</span>
+        <span>T</span>
+        <span>Y</span>
+    </h1>
+
+    <div class="contentSection">
+        <div class="infoSection" id="info-section">
+            @foreach (var response in Model.UserResponses)
+            {
+                <div class="userMessage">
+                    @if (response.UserID != Model.UserID)
+                    {
+                        <div class="bubbleSpeech bubbleLeft">
+                            @response.AnswerText
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="bubbleSpeech bubbleRight">
+                            @response.AnswerText
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="interactionSection">
+            <h2>
+                I like my <strong style="color:rgb(55, 231, 32);">
+                    @(string.IsNullOrEmpty(Model.Word1) ? "???" : Model.Word1)
+                </strong>
+                like I like my <strong style="color: rgb(55, 231, 32);">
+                    @(string.IsNullOrEmpty(Model.Word2) ? "???" : Model.Word2)
+                </strong>.
+            </h2>
+
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const userMessages = document.querySelectorAll('.userMessage');
+            const delayPerMessage = 2; // Delay in seconds for each message
+            const additionalDelay = 1; // Extra delay after last message animation
+
+            // Apply animation delay dynamically to user messages
+            userMessages.forEach((message, index) => {
+                message.style.animationDelay = `${delayPerMessage * index}s`;
+            });
+
+            // Calculate total duration for all animations to finish
+            const totalDuration = (delayPerMessage * userMessages.length) + additionalDelay;
+
+            // Redirect after animations are complete
+            setTimeout(() => {
+                window.location.href = "@Url.Page("/Likeability/Vote", new { sessionCode = Model.SessionCode })";
+            }, totalDuration * 1000);
+        });
+    </script>
+
+
+    <script src="js/audio.js"></script>
+
+</body>
+</html>

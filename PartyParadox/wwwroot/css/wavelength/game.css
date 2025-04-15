@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: rgb(112, 62, 161);
+}
+
+.content-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 95%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    background-color: #fff;
+    border: 5px solid #000; /* Thicker outer line */
+    padding: 30px; /* Increased padding */
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 2rem;
+    padding-top: 2rem; 
+}
+
+.blindedUser {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 0 auto; /* Ensure the div is centered within its parent */
+    width: 100%; /* Full width for centering */
+    margin-bottom: 30px; /* Space below blinded user and other users */
+}
+
+
+.blindedUser .user {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between user and bubble */
+}
+
+/* User List Styling */
+.user-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow multiple rows */
+    gap: 20px; /* Space between rows and items */
+    justify-content: space-between; /* Space rows evenly */
+    margin-top: 20px;
+}
+
+.user-message {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between user and bubble */
+    width: calc(33.33% - 20px); /* Fit 3 users per row */
+    box-sizing: border-box;
+}
+
+
+
+.divider {
+    height: 100%;
+    width: 2px;
+    background-color: #000;
+    margin: 0 20px;
+}
+
+.interaction {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centering content */
+    position: relative; /* Required for positioning the timer */
+    padding: 40px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.interaction h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.interaction input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.text-log {
+    width: 80%;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    height: 150px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.text-log p {
+    padding: 5px 15px;
+    background-color: #e6e6e6;
+    border: 1px solid #ccc;
+    border-radius: 50px; /* Oval shape */
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* Timer circle */
+.timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #fff;
+}
+
+.user img {
+    width: 40px; /* Adjust user image size */
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user span {
+    font-weight: bold;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .content-section {
+        flex-direction: column;
+    }
+    .divider {
+        display: block; 
+        margin: 10px 0;
+        width: 100%;
+        height: 2px;
+    }
+    .user-list {
+        justify-content: center; /* Center users on smaller screens */
+    }
+    .user-message {
+        width: calc(50% - 10px); /* Fit 2 users per row on smaller screens */
+    }
+    .interaction {
+        width: 100%;
+    }
+}

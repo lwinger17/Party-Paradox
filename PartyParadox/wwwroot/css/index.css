@@ -1,0 +1,284 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: stretch;
+}
+
+html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container {
+    max-width: 100%;
+}
+
+
+
+.title-section {
+    width: 80%; /* Adjust the width as desired (e.g., 80% of the container) */
+    margin: 0 auto; /* Centers the section horizontally */
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 15px;
+}
+
+.title-container {
+    display: flex; /* Flexbox to align elements horizontally */
+    align-items: center; /* Vertically align the back button and title */
+    justify-content: flex-start; /* Align items to the left */
+    gap: 10px; /* Add space between the back button and the title */
+}
+
+.back-button {
+    top: 20px; /* Distance from the top of the screen */
+    left: 20px; /* Distance from the left of the screen */
+    cursor: pointer;
+    position: fixed;
+    z-index: 100; 
+    display: inline-block;
+    text-decoration: none;
+}
+
+
+.back-button img:hover {
+    transform: scale(1.1); 
+}
+
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.circle-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 4px solid black;
+    background-color: white;
+}
+
+.circle-image img {
+    width: 100%;
+    height: auto;
+    
+}
+
+.circle-image-container {
+    position: relative;
+    display: inline-block;
+   
+}
+
+
+.upload-circle {
+    position: absolute;
+    bottom: 10px; /* Move up slightly */
+    right: 6px;  /* Move left slightly */
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.upload-circle:hover {
+    transform: scale(1.1); 
+}
+
+
+.upload-circle .plus-sign {
+    font-size: 18px; /* Adjust the plus sign size to fit */
+    color: #333;
+}
+
+.profile-upload {
+    display: none;
+}
+
+.profile-upload:focus {
+    outline: none;
+}
+
+
+.name-input {
+    padding: 12px;
+    width: 200px;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.room-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between the buttons */
+
+}
+
+.room-buttons .join-room-button,
+.room-buttons .create-room-button {
+    background-color: #222; /* Dark background for consistency */
+    color: #fff; /* White text */
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px; /* Matches the rounded corners of htp-box */
+    width: 200px; /* Consistent button size */
+    max-width: 90%; /* Responsive sizing */
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.room-buttons .join-room-button:hover,
+.room-buttons .create-room-button:hover {
+    background-color: #333; /* Slightly lighter shade on hover */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+.room-buttons .join-room-button:active,
+.room-buttons .create-room-button:active {
+    transform: translateY(0); /* Reset on click */
+}
+
+.room-buttons .join-room-button {
+    background-color: #a223e6; /* Accent color for Join Room */
+}
+
+.room-buttons .create-room-button {
+    background-color: #22e6ae; /* Accent color for Create Room */
+}
+
+.black-button {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.black-button:hover {
+    background-color: #333;
+}
+
+.css-selector {
+    background: linear-gradient(358deg, #671adc, #0cdc75, #b836a6, #c44ae9);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 70s ease infinite;
+    -moz-animation: AnimationName 70s ease infinite;
+    animation: AnimationName 70s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {background-position: 51% 0%;}
+    50% {background-position: 50% 100%;}
+    100% {background-position: 51% 0%;}
+}
+
+@-moz-keyframes AnimationName {
+    0% {background-position: 51% 0%;}
+    50% {background-position: 50% 100%;}
+    100% {background-position: 51% 0%;}
+}
+
+@keyframes AnimationName {
+    0% {background-position: 51% 0%;}
+    50% {background-position: 50% 100%;}
+    100% {background-position: 51% 0%;}
+}
+
+/* General Styling for the How-to-Play Section */
+.htp-section {
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.htp-section h2 {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Styling for the Black Boxes */
+.htp-box {
+    background-color: #222; /* Dark background for contrast */
+    color: #fff; /* White text for readability */
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for Box Titles */
+.htp-box h3 {
+    font-size: 22px;
+    margin-top: 0;
+    color: #0cdc75; /* Accent color for titles */
+    text-transform: uppercase;
+}
+
+/* Styling for Paragraphs and Lists */
+.htp-box p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.htp-box ul {
+    list-style-type: disc; /* Bullet points for lists */
+    margin-left: 20px; /* Indent for better readability */
+    margin-top: 10px;
+}
+
+.htp-box li {
+    margin-bottom: 8px; /* Spacing between list items */
+}
+
+.basics-box h3 {
+    color: #3498db;
+}
+
+.likeability-box h3 {
+    color: #e5a61e;
+}
+
+.rating-box h3 {
+    color: #931acf;
+}
+
+

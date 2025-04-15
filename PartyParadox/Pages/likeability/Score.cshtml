@@ -1,0 +1,61 @@
+@page
+@model PartyParadox.Pages.LikeScoreModel
+@{
+    ViewData["Title"] = "LikeScore page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/likeability.css">
+    <link rel="stylesheet" href="../css/titleLike.css">
+    <link rel="stylesheet" href="../css/likeability/game.css">
+    <link rel="stylesheet" href="../css/likeability/textBubble.css">
+    <link rel="stylesheet" href="../css/likeability/score.css">
+</head>
+<body class="css-selector">
+    <audio id="like-audio" src="/audio/likeBackground.mp3" loop></audio>
+
+    <h1>
+        <span>L</span><span>I</span><span>K</span><span>E</span>
+        <span>A</span><span>B</span><span>I</span><span>L</span>
+        <span>I</span><span>T</span><span>Y</span>
+    </h1>
+
+    <div class="contentSection">
+        @for (int i = 0; i < Model.RankedUsers.Count; i++)
+        {
+            var user = Model.RankedUsers[i];
+            string blockClass = i == 0 ? "first" : i == 1 ? "second" : i == 2 ? "third" : "rest";
+
+            <div class="block @blockClass">
+                <div class="profile">
+                    <div class="circleImage">
+                        <img src="@user.UserImage" alt="Profile @user.Rank">
+                    </div>
+                    <span>@user.UserName</span>
+                </div>
+                <span>@user.Points pts</span>
+                <span>#@user.Rank</span>
+            </div>
+        }
+
+        <button type="button" onclick="goToNextRound()">Next Round</button>
+        <button type="button" class="buttonL" onclick="goToLobby()">Lobby</button>
+    </div>
+
+    <script>
+        function goToNextRound() {
+            window.location.href = "@Url.Page("/likeability/Prompt", new { sessionCode = Model.SessionCode })";
+        }
+
+        function goToLobby() {
+            window.location.href = "@Url.Page("/Index")";}
+    </script>
+
+    <script src="js/audio.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+@page
+@model PartyParadox.Pages.WavelengthModel
+@{
+    ViewData["Title"] = "Wavelength Game";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="css/wavelength.css">
+    <link rel="stylesheet" href="css/titleWave.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/countdown.css">
+</head>
+
+<audio id="wave-audio" src="/audio/waveBackground.mp3" loop></audio>
+
+<body class="css-selector">
+    <h1>
+        <span>W</span><span>A</span><span>V</span><span>E</span><span>L</span><span>E</span><span>N</span><span>G</span><span>T</span>
+    </h1>
+
+    <div class="room-code">
+        Room Code: <span>@Model.SessionCode</span>
+    </div>
+
+    <div class="screen">
+        <div class="left-side">
+            @if (Model.Users.Any(u => u.Name == Model.CurrentUser))
+            {
+                var user = Model.Users.First(u => u.Name == Model.CurrentUser);
+                <div class="profile" data-user-id="@user.ID" data-session-id="@Model.SessionCode">
+                    <img src="@user.Image" alt="@user.Name">
+                    <div class="username">@user.Name</div>
+                </div>
+
+                <button class="start-button"
+                        id="startGameButton"
+                        data-url="@Url.Page("/wavelength/ChooseNum", new { sessionCode = Model.SessionCode })">
+                    Start Game
+                </button>
+            }
+        </div>
+
+        <div class="right-side">
+            @foreach (var user in Model.Users.Where(u => u.Name != Model.CurrentUser))
+            {
+                <div class="player-circle" data-user-id="@user.ID" data-session-id="@Model.SessionCode">
+                    <img src="@user.Image" alt="@user.Name">
+                    <div class="banner">@user.Name</div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="chat-box" id="chat-box"></div>
+
+    <div class="chat-input-section">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Type your message">
+        <button class="chat-send-btn" id="send-btn">Send</button>
+    </div>
+
+    <section class="htp-section">
+        <div class="htp-box rating-box">
+            <h3>Rating Roundabout</h3>
+            <p>This game is essentially a game known as "Wavelength."</p>
+            <ol>
+                <li>One person is blindfolded, and the rest have to come up with a number.</li>
+                <li>
+                    The blindfolded person has to guess the number by asking questions such as "Breakfast Items."
+                    <ul>
+                        <li>The answer should correspond with the number (10 being the best, 1 being the worst).</li>
+                        <li>For this breakfast example, if the number was 1, you could say "A block of cement," and for a 10, "Waffles."</li>
+                    </ul>
+                </li>
+                <li>After asking everyone, the blindfolded person gives their final answer.</li>
+                <li>Points are rewarded for correctly guessing the number and for helping the person get close to the number.</li>
+                <li>This goes for 3 rounds.</li>
+            </ol>
+        </div>
+    </section>
+
+    <a asp-page="/Index" class="back-button" onclick="leaveGame()">
+        <img src="img/back.png" alt="Back">
+    </a>
+
+    <input type="hidden" name="__RequestVerificationToken" id="csrf-token" value="@Html.AntiForgeryToken()" />
+
+    <script src="js/chat.js"></script>
+    <script src="js/redirectGameW.js"></script>
+    <button class="start-button"
+            id="startGameButton"
+            data-url="@Url.Page("/wavelength/ChooseNum", new { sessionCode = Model.SessionCode })">
+        Start Game
+    </button>
+
+    <script>
+        document.getElementById("startGameButton")?.addEventListener("click", function () {
+            var currentUser = "@Model.CurrentUser";
+            var blindfoldedUser = "@Model.SelectedBlindfoldedUser";
+
+            // Create a countdown element and append it to the body
+            var countdownElement = document.createElement("div");
+            countdownElement.classList.add("countdown-timer");
+            document.body.appendChild(countdownElement);
+
+            // Set countdown time to 10 seconds (change as needed)
+            let countdownTime = 10; // Set to 10 seconds for example
+            const countdownDisplay = countdownElement;
+
+            // Disable the button during countdown
+            document.getElementById("startGameButton").disabled = true;
+
+            // Countdown function
+            const countdownInterval = setInterval(function () {
+                const minutes = Math.floor(countdownTime / 60);
+                const seconds = countdownTime % 60;
+
+                // Update the countdown display in MM:SS format
+                countdownDisplay.textContent = `Game starting in: ${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+                if (countdownTime <= 0) {
+                    clearInterval(countdownInterval);
+
+                    // Redirect the blindfolded user to Bprompts and the rest to ChooseNum
+                    if (currentUser === blindfoldedUser) {
+                        window.location.href = "@Url.Page("/wavelength/Bprompts", new { sessionCode = Model.SessionCode })";
+                    } else {
+                        window.location.href = "@Url.Page("/wavelength/ChooseNum", new { sessionCode = Model.SessionCode })";
+                    }
+                }
+
+                countdownTime--;
+            }, 1000);
+        });
+    </script>
+
+
+</body>
+</html>

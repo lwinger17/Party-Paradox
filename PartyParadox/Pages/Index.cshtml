@@ -1,0 +1,216 @@
+@page
+@model PartyParadox.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/title.css">
+</head>
+<audio id="home-audio" src="/audio/BackgroundHome.mp3" loop></audio>
+
+
+<body class="css-selector">
+    <header class="title-section">
+        <svg viewBox="0 0 960 300">
+            <symbol id="s-text">
+                <text text-anchor="middle" x="50%" y="40%">PARADOX</text>
+                <text text-anchor="middle" x="50%" y="70%">PARTY</text>
+            </symbol>
+            <g class="g-ants">
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+            </g>
+        </svg>
+    </header>
+
+    <section class="user-input-section">
+        <form method="post" enctype="multipart/form-data">
+            <div class="user-info">
+                <div class="circle-image-container">
+                    <div class="circle-image">
+                        <img src="@(!string.IsNullOrEmpty(Model.ProfileImagePath) ? Model.ProfileImagePath : "/UserImgs/Default.png")" alt="Profile Picture" id="profile-img">
+                    </div>
+                    <label for="profile-upload" class="upload-circle">
+                        <span class="plus-sign">+</span>
+                        <input type="file" id="profile-upload" class="profile-upload" accept="image/*" asp-for="ProfileImage" onchange="changeImage(event)">
+                    </label>
+                </div>
+                <input type="text" placeholder="Username" class="name-input" asp-for="UserName" value="@Model.UserName" required>
+
+                <div class="room-buttons">
+                    <button type="submit" asp-page-handler="JoinGame" class="join-room-button">Join Room</button>
+                    <button type="submit" asp-page-handler="CreateGame" class="create-room-button">Create Room</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <section class="htp-section">
+        <h2>How to Play</h2>
+        <div class="htp-box basics-box">
+            <h3>Basics</h3>
+            <p>
+                Paradox Party is home to a couple of fun games to play with friends. For best results, play in person,
+                but online play is also available if you like to play with randoms.
+            </p>
+            <ol>
+                <li>A username is required to play; a picture is optional.</li>
+                <li>You win by having the most points. If you win, you get the satisfaction of being the funny one in the group.</li>
+                <li>Have fun, make some chaos.</li>
+            </ol>
+        </div>
+
+        <div class="htp-box likeability-box">
+            <h3>Likeability</h3>
+            <p>
+                You know the saying "I like my men like I like my coffee " ? Well, that's what this game is.
+            </p>
+            <ol>
+                <li>Each person gives a couple of random words. It can be anything from your friend Easton to a fish and it can even be a building</li>
+                <li>
+                    These words will be randomly shuffled together to make combinations such as...
+                    <ul>
+                        <li>"I like my books like I like my desserts."</li>
+                        <li>"I like breakfast like I like my shoes."</li>
+                        <li>"I like my bank account like I like horses."</li>
+                        <li>(Not everything has to include " my ")</li>
+                    </ul>
+                </li>
+                <li>
+                    The goal is to find how these two are similar. You could answer the phrase above with words...
+                    <ul>
+                        <li>"Big," "Light," or "Made with Tears."</li>
+                    </ul>
+                </li>
+                <li>After answering, vote on your favorite and see who said what.</li>
+                <li>Points are rewarded based on the votes you receive.</li>
+                <li>The game ends when all words are used.</li>
+            </ol>
+        </div>
+
+        <div class="htp-box rating-box">
+            <h3>Rating Roundabout</h3>
+            <p>This game is essentially a game known as "Wavelength."</p>
+            <ol>
+                <li>One person is blindfolded, and the rest have to come up with a number.</li>
+                <li>
+                    The blindfolded person has to guess the number by asking questions such as "Breakfast Items."
+                    <ul>
+                        <li>The answer should correspond with the number (10 being the best, 1 being the worst).</li>
+                        <li>For this coffee example, if the number was 1, you could say "A block of cement," and for a 10, "Waffles."</li>
+                    </ul>
+                </li>
+                <li>After asking everyone, the blindfolded person gives their final answer.</li>
+                <li>Points are rewarded for correctly guessing the number and for helping the person get close to the number.</li>
+                <li>This goes for 3 rounds.</li>
+            </ol>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('beforeunload', function () {
+            navigator.sendBeacon('/Index?handler=ClearSession');
+        });
+    </script>
+
+    <script>
+        function changeImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const profileImg = document.getElementById('profile-img');
+                profileImg.src = e.target.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+                function removeUserSession() {
+            navigator.sendBeacon('/Index?handler=ClearSession');
+        }
+
+        // Handle page unload (most browsers)
+        window.addEventListener("beforeunload", removeUserSession);
+
+        // Handle tab switching or browser minimizing
+        document.addEventListener("visibilitychange", function() {
+            if (document.visibilityState === "hidden") {
+                removeUserSession();
+            }
+        });
+
+                document.addEventListener("click", function() {
+            const audio = document.getElementById("home-audio");
+            if (audio.paused) {
+                audio.play().catch(error => console.warn("Autoplay blocked:", error));
+            }
+        }, { once: true });
+
+                       document.getElementById('profile-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+
+            if (file && file.size > 2 * 1024 * 1024) { // Check if file is over 2MB
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.src = e.target.result;
+
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        const maxSize = 500; // Maximum width/height
+
+                        let width = img.width;
+                        let height = img.height;
+
+                        // Resize while keeping aspect ratio
+                        if (width > height) {
+                            if (width > maxSize) {
+                                height *= maxSize / width;
+                                width = maxSize;
+                            }
+                        } else {
+                            if (height > maxSize) {
+                                width *= maxSize / height;
+                                height = maxSize;
+                            }
+                        }
+
+                        canvas.width = width;
+                        canvas.height = height;
+
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+
+                        canvas.toBlob(function(blob) {
+                            const resizedFile = new File([blob], file.name, { type: file.type });
+
+                            // Replace original file with resized version
+                            const dataTransfer = new DataTransfer();
+                            dataTransfer.items.add(resizedFile);
+                            event.target.files = dataTransfer.files;
+                        }, file.type, 0.9); // Adjust quality if needed
+                    };
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+
+
+    </script>
+</body>
+</html>

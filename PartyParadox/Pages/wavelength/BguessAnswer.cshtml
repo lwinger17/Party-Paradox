@@ -1,0 +1,149 @@
+@page
+@{
+    ViewData["Title"] = "WaveBlindAns page";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/wavelength.css">
+    <link rel="stylesheet" href="../css/titleWave.css">
+    <link rel="stylesheet" href="../css/wavelength/game.css">
+    <link rel="stylesheet" href="../css/wavelength/textBubble.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <style>
+        .number-display {
+            font-size: 72px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #9a3dc9;
+        }
+
+        .content-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .user-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .user-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .bubble-speech.bubble-right:after {
+            border-top: 0 #add8e6 solid;
+            border-right: 20px #add8e6 solid;
+        }
+
+        .bubble-speech.bubble-right {
+            background-color: #add8e6;
+        }
+
+        .interaction {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 100%;
+        }
+
+        .bubble-speech.bubble-left {
+            background-color: #90ee90 ; /* Light blue background for left */
+        }
+
+        .bubble-speech.bubble-left:after {
+            border-top: 0 #90ee90 solid; /* Match left background color */
+            border-left: 20px #90ee90 solid; /* Match left background color */
+        }
+
+    </style>
+</head>
+<audio id="wave-audio" src="/audio/waveBackground.mp3" loop></audio>
+
+<body class="css-selector">
+    <div class="container">
+        <h2 class="title">
+            <span class="title-word title-word-1">Rating</span>
+            <span class="title-word title-word-2">Roundabout</span>
+        </h2>
+    </div>
+
+    <div class="content-section">
+        <!-- User List -->
+        <div class="user-section">
+            <!-- Blinded User -->
+            <div class="blindedUser">
+                <div class="user">
+                    <img src="blindUser.png" alt="Blind User">
+                    <span>Blinded User</span>
+                </div>
+            </div>
+            <div class="bubble-speech bubble-left">Harry Potter Movies</div>
+            <!-- Other Users -->
+            <div class="user-list">
+                <div class="user-message">
+                    <div class="bubble-speech bubble-right">Half blood Prince</div>
+                    <div class="user">
+                        <img src="user2.png" alt="User 2">
+                        <span>User</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+        <div class="interaction">
+            <div class="timer" id="timer">45</div>
+            <h2>Guess a number! </h2>
+            <input type="number" id="user-input" placeholder="Enter a number (1-10)" min="1" max="10">
+            <button id="submit-button" onclick="submitAnswer()">Submit</button>
+            <div class="text-log" id="text-log"></div>
+        </div>
+    </div>
+    
+    <script>
+        let countdown = 45;
+        const timerElement = document.getElementById('timer');
+        const interval = setInterval(() => {
+            if (countdown > 0) {
+                countdown--;
+                timerElement.textContent = countdown;
+                timerElement.style.opacity = countdown / 45; // Gradually disappear
+            } else {
+                clearInterval(interval);
+            }
+        }, 1000);
+
+        function submitAnswer() {
+            const inputElement = document.getElementById('user-input');
+            const input = inputElement.value;
+            const textLog = document.getElementById('text-log');
+            const submitButton = document.getElementById('submit-button');
+
+            // Validate input
+            if (input >= 1 && input <= 10) {
+                textLog.innerHTML = `<p>${input}</p>`;
+                inputElement.value = '';
+                submitButton.textContent = "Change Answer";
+            } else {
+                alert("Please enter a number between 1 and 10.");
+                inputElement.value = ''; // Clear the input
+            }
+        }
+    </script>
+</body>
+</html>

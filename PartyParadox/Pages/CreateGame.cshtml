@@ -1,0 +1,172 @@
+@page
+@model PartyParadox.Pages.CreateGame
+@{
+    ViewData["Title"] = "Create page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/title.css">
+    <link rel="stylesheet" href="css/createScreen.css">
+</head>
+
+<audio id="home-audio" src="/audio/BackgroundHome.mp3" loop></audio>
+
+<style>
+    .gameChoiceButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        background-color: #f9f9f9;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .gameChoiceButton.active {
+            background-color: #4caf50;
+            color: #fff;
+            border-color: #4caf50;
+        }
+
+        .gameChoiceButton:hover {
+            background-color: #e0e0e0;
+        }
+
+</style>
+
+<body class="css-selector">
+    <!-- Title Section -->
+    <header class="title-section">
+        <svg viewBox="0 0 960 300">
+            <symbol id="s-text">
+                <text text-anchor="middle" x="50%" y="40%">PARADOX</text>
+                <text text-anchor="middle" x="50%" y="70%">PARTY</text>
+            </symbol>
+
+            <g class="g-ants">
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+            </g>
+        </svg>
+    </header>
+
+    <!-- Room Creation Form -->
+    <a asp-page="/Index" class="back-button">
+        <img src="img/back.png" alt="Back">
+    </a>
+
+    <section class="roomCreate">
+        <h2>Create a Room</h2>
+        <form method="post" id="roomCreateForm">
+            <label for="roomTitle">Room Name:</label>
+            <input type="text" id="roomTitle" name="RoomTitle" value="@Model.RoomTitle" required>
+
+            <fieldset>
+                <div class="gameChoice">
+                    <label class="gameChoiceLabel">
+                        <input type="radio" name="GameChoice" value="likeability" class="gameChoiceInput"
+                        @(Model.GameChoice == "likeability" ? "checked" : "")>
+                        <span class="gameChoiceButton">Likeability</span>
+                    </label>
+                    <label class="gameChoiceLabel">
+                        <input type="radio" name="GameChoice" value="wavelength" class="gameChoiceInput"
+                        @(Model.GameChoice == "wavelength" ? "checked" : "")>
+                        <span class="gameChoiceButton">Rating Roundabout</span>
+                    </label>
+                </div>
+            </fieldset>
+
+
+            <label for="roomSize">Room Size (1-12 people)</label>
+            <input type="range" id="roomSize" name="RoomSize" min="1" max="12" value="@Model.RoomSize" step="1">
+            <span id="slider-value">@Model.RoomSize</span>
+
+            <label for="privacy">Room Privacy:</label>
+            <select id="privacy" name="privacy">
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+            </select>
+
+            <button type="submit">Create Room</button>
+        </form>
+    </section>
+
+    <script src="js/lobby.js"></script>
+
+    <script>
+                   document.getElementById("roomCreateForm").addEventListener("submit", async function (event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch('@Url.Page("CreateGame")', {
+                    method: "POST",
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    alert(errorData.error || "Error creating game. Please try again.");
+                    return;
+                }
+
+                const data = await response.json();
+
+                if (data.gameChoice === "likeability") {
+                    window.location.href = `/Likeability?sessionCode=${data.sessionCode}`;
+                } else if (data.gameChoice === "wavelength") {
+                    window.location.href = `/Wavelength?sessionCode=${data.sessionCode}`;
+                }
+            } catch (error) {
+                console.error("Error creating game:", error);
+                alert("Error creating game. Please try again.");
+            }
+        });
+
+    </script>
+    <script>
+                document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".gameChoiceButton");
+            const inputs = document.querySelectorAll(".gameChoiceInput");
+
+            function resetButtons() {
+                buttons.forEach(btn => {
+                    btn.style.backgroundColor = "#333"; // Dark gray
+                    btn.style.borderColor = "#333";
+                });
+            }
+
+            inputs.forEach(input => {
+                input.addEventListener("change", function () {
+                    resetButtons(); // Reset all buttons to dark gray first
+
+                    if (this.checked) {
+                        if (this.value === "likeability") {
+                            this.nextElementSibling.style.backgroundColor = "orange";
+                            this.nextElementSibling.style.borderColor = "orange";
+                        } else if (this.value === "wavelength") {
+                            this.nextElementSibling.style.backgroundColor = "purple";
+                            this.nextElementSibling.style.borderColor = "purple";
+                        }
+                    }
+                });
+            });
+
+            // Ensure both start in dark gray if nothing is selected on page load
+            resetButtons();
+        });
+
+
+    </script>
+
+</body>
+</html>

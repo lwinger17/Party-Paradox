@@ -1,0 +1,127 @@
+@page
+@{
+    ViewData["Title"] = "WaveBlindPrompt page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/wavelength.css">
+    <link rel="stylesheet" href="../css/titleWave.css">
+    <link rel="stylesheet" href="../css/wavelength/game.css">
+    <link rel="stylesheet" href="../css/wavelength/textBubble.css">
+</head>
+<audio id="wave-audio" src="/audio/waveBackground.mp3" loop></audio>
+
+<body class="css-selector">
+    <div class="container">
+        <h2 class="title">
+            <span class="title-word title-word-1">Rating</span>
+            <span class="title-word title-word-2">Roundabout</span>
+        </h2>
+    </div>
+
+    <div class="content-section">
+        <!-- User List -->
+        <div class="user-section">
+            <div class="blindedUser">
+                <div class="user">
+                    @if (Model.BlindedUser != null)
+                    {
+                        <img src="@Model.BlindedUser.UserImage" alt="@Model.BlindedUser.UserName" />
+                        <span>@Model.BlindedUser.UserName</span>
+                    }
+                    else
+                    {
+                        <img src="/images/default.png" alt="Unknown" />
+                        <span>Blinded User</span>
+                    }
+                </div>
+            </div>
+
+            <!-- Other Users -->
+            <div class="user-list">
+                @foreach (var user in Model.Users)
+                {
+                    if (Model.BlindedUser != null && user.UserID == Model.BlindedUser.UserID)
+                    {
+                        continue;
+                    }
+                    <div class="user-message">
+                        <div class="user">
+                            <img src="@user.UserImage" alt="@user.UserName" />
+                            <span>@user.UserName</span>
+                        </div>
+                        <div class="bubble-speech bubble-left">?</div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Interaction Section -->
+        <div class="interaction">
+            <div class="timer" id="timer">60</div>
+            <h2>Write some prompts!</h2>
+            <p>These will take priority over generated questions.</p>
+
+            <!-- Form for submitting prompts -->
+            <form method="post" id="promptForm" action="@Url.Page("/wavelength/SubmitPrompt", new { sessionCode = Model.SessionCode })">
+                <input type="text" name="userPrompt" id="user-input" placeholder="Write as many as you can think of" required />
+                <button type="submit" id="submit-button">Submit</button>
+            </form>
+
+            <div class="text-log" id="text-log">
+                <h3>Your Prompts:</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let countdown = 45;
+            const timerElement = document.getElementById('timer');
+
+            const interval = setInterval(() => {
+                if (countdown > 0) {
+                    countdown--;
+                    timerElement.textContent = countdown;
+                } else {
+                    clearInterval(interval);
+                    window.location.href = "@Url.Page("/wavelength/BguessAnswer", new { sessionCode = Model.SessionCode })";
+                }
+            }, 1000);
+
+            const form = document.getElementById("promptForm");
+            const inputField = document.getElementById("user-input");
+            const textLog = document.getElementById("text-log");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+                fetch(form.action, {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const newPrompt = document.createElement("p");
+                        newPrompt.textContent = data.prompt;
+                        textLog.appendChild(newPrompt);
+                        inputField.value = "";
+                    } else {
+                        console.error("Error submitting prompt:", data.message);
+                    }
+                })
+                .catch(err => console.error("Fetch error:", err));
+            });
+        });
+    </script>
+
+    <script src="js/audio.js"></script>
+</body>
+</html>

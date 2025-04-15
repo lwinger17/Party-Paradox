@@ -1,0 +1,173 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+html {
+    background-color: rgb(85, 154, 122);
+}
+
+.pageContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 95%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    gap: 20px; /* Spacing between sections */
+}
+
+.infoSection {
+    display: flex;
+    flex-direction: column; /* Row by default for wide screens */
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contentSection {
+    display: flex;
+    flex-direction: row; /* Row by default for wide screens */
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 95%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    background-color: #fff;
+    border: 5px solid #000; 
+    padding: 30px; 
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.userList {
+    width: 40%;
+    display: flex;
+    flex-direction: column !important; /* Ensure vertical stacking */
+    align-items: flex-start;
+    margin-right: 20px;
+    gap: 10px; /* Add spacing between users */
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0; /* Remove margin-bottom; use gap instead */
+}
+
+.user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.divider {
+    height: 100%;
+    width: 2px;
+    background-color: #000;
+    margin: 0 20px;
+}
+
+.interactionSection {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.interactionSection h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.interactionSection p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.interactionSection input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.textLog {
+    width: 80%;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    height: 150px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.textLog p {
+    padding: 5px 15px;
+    background-color: #e6e6e6;
+    border: 1px solid #ccc;
+    border-radius: 50px; 
+    margin: 5px 0;
+    text-align: center;
+}
+
+.timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #fff;
+}
+
+.userMessage {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user span {
+    font-weight: bold;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .contentSection {
+        flex-direction: column; /* Interaction section on top */
+        align-items: stretch;
+    }
+
+    .divider {
+        display: none; /* Hide the divider */
+    }
+
+    .userList {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .interactionSection {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+}

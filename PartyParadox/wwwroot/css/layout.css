@@ -1,0 +1,70 @@
+html {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding-bottom: 100px; /* Space for the footer */
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+    footer a {
+        color: rgb(250, 250, 250);
+        text-decoration: none;
+        margin: 0 10px;
+
+    }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    footer small {
+        display: block;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #aaa;
+    }
+
+
+.audio-toggle {
+    position: fixed; /* Sticks the button to the viewport */
+    top: 20px; /* Distance from the top of the screen */
+    right: 20px; /* Distance from the left of the screen */
+    cursor: pointer;
+    z-index: 100; /* Ensures it stays above other elements */
+    display: inline-block;
+    text-decoration: none;
+}
+
+    .audio-toggle img:hover {
+        transform: scale(1.1);
+    }
+
+.user-input-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}

@@ -1,0 +1,163 @@
+@page
+@{
+    ViewData["Title"] = "WaveAnsOther page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/wavelength.css">
+    <link rel="stylesheet" href="../css/titleWave.css">
+    <link rel="stylesheet" href="../css/wavelength/game.css">
+    <link rel="stylesheet" href="../css/wavelength/textBubble.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <style>
+        .number-display {
+            font-size: 72px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #9a3dc9;
+        }
+
+        .content-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .user-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .user-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .bubble-speech.bubble-right:after {
+            border-top: 0 #add8e6 solid;
+            border-right: 20px #add8e6 solid;
+        }
+
+        .bubble-speech.bubble-right {
+            background-color: #add8e6;
+        }
+
+        .interaction {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 100%;
+        }
+
+        .bubble-speech.bubble-left {
+            background-color: #d9a5eb ; /* Light blue background for left */
+        }
+
+        .bubble-speech.bubble-left:after {
+            border-top: 0 #d9a5eb solid; /* Match left background color */
+            border-left: 20px #d9a5eb solid; /* Match left background color */
+        }
+
+        .audio-toggle {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+    </style>
+</head>
+<audio id="wave-audio" src="/audio/waveBackground.mp3" loop></audio>
+
+<body class="css-selector">
+    <div class="container">
+        <h2 class="title">
+            <span class="title-word title-word-1">Rating</span>
+            <span class="title-word title-word-2">Roundabout</span>
+        </h2>
+    </div>
+
+    <div class="content-section">
+        <!-- User List -->
+        <div class="user-section">
+            <!-- Blinded User -->
+            <div class="blindedUser">
+                <div class="user">
+                    <img src="blindUser.png" alt="Blind User">
+                    <span>Blinded User</span>
+                </div>
+            </div>
+            <div class="bubble-speech bubble-left">Harry Potter Movies</div>
+            <!-- Other Users -->
+            <div class="user-list">
+                <div class="user-message">
+                    <div class="bubble-speech bubble-right">Half blood Prince</div>
+                    <div class="user">
+                        <img src="user2.png" alt="User 2">
+                        <span>User</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+        <div class="interaction">
+            <div class="timer" id="timer">45</div>
+            <h2> Chat with each other while you see everyone's answers! </h2>
+            <div class="chat-box" id="chat-box">
+                <!-- Chat messages will appear here -->
+            </div>
+
+            <div class="chat-input-section">
+                <input type="text" class="chat-input" id="chat-input" placeholder="Type your message">
+                <button class="chat-send-btn" id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/chat.js"></script>
+    <script>
+        let countdown = 30;
+                const timerElement = document.getElementById('timer');
+                const numberDisplay = document.getElementById('number-display');
+
+
+                const interval = setInterval(() => {
+                    if (countdown > 0) {
+                        countdown--;
+                        timerElement.textContent = countdown;
+                        timerElement.style.opacity = countdown / 45;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 1000);
+    </script>
+
+
+
+<audio id="background-audio" loop>
+    <source src="../audio/wavelengthBackground.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- Audio Toggle Icon -->
+<div class="audio-toggle" id="audio-toggle">
+    <img src="../img/audio.png" alt="Audio On" id="audio-icon">
+</div>
+<script src="../js/audio.js"></script>
+
+
+</body>
+</html>

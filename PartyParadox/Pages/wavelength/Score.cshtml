@@ -1,0 +1,81 @@
+@page
+@{
+    ViewData["Title"] = "WaveScore page";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/wavelength.css">
+    <link rel="stylesheet" href="../css/titleWave.css">
+    <link rel="stylesheet" href="../css/wavelength/game.css">
+    <link rel="stylesheet" href="../css/wavelength/textBubble.css">
+    <link rel="stylesheet" href="../css/wavelength/score.css">
+</head>
+<audio id="wave-audio" src="/audio/waveBackground.mp3" loop></audio>
+
+<body class="css-selector">
+    <div class="container">
+        <h2 class="title">
+            <span class="title-word title-word-1">Rating</span>
+            <span class="title-word title-word-2">Roundabout</span>
+        </h2>
+    </div>
+
+    <div class="contentSection">
+        <!-- Added Number Display -->
+        <div class="numberDisplay">
+            <p>The number was...</p>
+            <h1 class="bigNumber">3</h1>
+            <p class="smallText">This round's magic number</p>
+        </div>
+
+        <div class="block first">
+            <div class="profile">
+                <div class="circleImage">
+                    <img src="../img/user.png" alt="Profile 1">
+                </div>
+                <span>John Doe</span>
+            </div>
+            <span>1500 pts</span>
+            <span>#1</span>
+        </div>
+        <div class="block second">
+            <div class="profile">
+                <div class="circleImage">
+                    <img src="../images/profile2.jpg" alt="Profile 2">
+                </div>
+                <span>Jane Smith</span>
+            </div>
+            <span>1200 pts</span>
+            <span>#2</span>
+        </div>
+        <div class="block third">
+            <div class="profile">
+                <div class="circleImage">
+                    <img src="../images/profile3.jpg" alt="Profile 3">
+                </div>
+                <span>Chris Brown</span>
+            </div>
+            <span>900 pts</span>
+            <span>#3</span>
+        </div>
+        <div class="block rest">
+            <div class="profile">
+                <div class="circleImage">
+                    <img src="../images/profile4.jpg" alt="Profile 4">
+                </div>
+                <span>Alex Taylor</span>
+            </div>
+            <span>600 pts</span>
+            <span>#4</span>
+        </div>
+        <button type="button">Next Round</button>
+    </div>
+    <script src="js/audio.js"></script>
+</body>
+</html>

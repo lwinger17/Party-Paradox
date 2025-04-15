@@ -1,0 +1,153 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.enter-lobby-code {
+    position: fixed;
+    /* try sticky if doesn;t work*/
+}
+
+
+
+/* Main content layout */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Form Styles */
+form label,
+form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form input[type="text"] {
+    padding: 8px;
+    font-size: 1em;
+}
+
+form button {
+    padding: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 250px;
+}
+
+button:hover {
+    background-color: #a30ab1;
+}
+
+/* Active games list */
+.active-games {
+    width: 100%;
+    max-width: 600px;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 250px;
+}
+
+.active-games ul {
+    list-style: none;
+    padding: 0;
+}
+
+.game-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #333; /* Dark background for each game item */
+}
+
+.game-info p {
+    margin: 5px 0;
+}
+
+.join-lobby-btn {
+    padding: 8px 15px;
+    background-color: #00b39b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.join-lobby-btn:hover {
+    background-color: #10e384;
+
+}
+
+
+
+/* Add space between the sections on full-size screens */
+@media (min-width: 769px) {
+    .content {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 30px;
+    }
+
+    .enter-lobby-code,
+    .active-games {
+        width: 48%;
+    }
+
+    /* Add more space between the sections on large screens */
+    .enter-lobby-code {
+        margin-bottom: 100px; /* Increased space between sections */
+    }
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    .content {
+        padding: 10px;
+    }
+
+    .enter-lobby-code,
+    .active-games {
+        width: 100%;
+        margin-bottom: 40px; /* Moderate space between sections for mobile */
+    }
+
+    .enter-lobby-code {
+        order: 1;  /* This ensures that the lobby code input comes first on mobile */
+        margin-right: 20px; /* Add space to the right side */
+    }
+
+    .active-games {
+        order: 2;
+        margin-left: 20px; /* Add space to the left side */
+    }
+
+    /* Ensure content remains centered even with margin */
+    .enter-lobby-code,
+    .active-games {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+

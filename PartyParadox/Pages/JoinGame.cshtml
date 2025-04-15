@@ -1,0 +1,143 @@
+@page
+@model PartyParadox.Pages.JoinGameModel
+@{
+    ViewData["Title"] = "Join Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/title.css">
+    <link rel="stylesheet" href="css/joinScreen.css">
+</head>
+
+<audio id="home-audio" src="/audio/BackgroundHome.mp3" loop></audio>
+
+<body class="css-selector">
+    <header class="title-section">
+        <svg viewBox="0 0 960 300">
+            <symbol id="s-text">
+                <text text-anchor="middle" x="50%" y="40%">PARADOX</text>
+                <text text-anchor="middle" x="50%" y="70%">PARTY</text>
+            </symbol>
+
+            <g class="g-ants">
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+                <use xlink:href="#s-text" class="text-copy"></use>
+            </g>
+        </svg>
+    </header>
+
+    <a asp-page="/Index" class="back-button">
+        <img src="img/back.png" alt="Back">
+    </a>
+
+    <!-- Play Button for Audio -->
+    <button id="play-audio" onclick="document.getElementById('home-audio').play()">?? Play Music</button>
+
+    <!-- Main Content -->
+    <main class="content">
+        <!-- Enter Lobby Code Section -->
+        <section class="enter-lobby-code">
+            <form id="lobby-code-form">
+                <h2>Play with Friends</h2>
+                <input type="text" id="lobbyCodeInput" required placeholder="Enter lobby code">
+                <button id="joinRoomButton">Join Room</button>
+                <p id="errorMessage" class="error-message" style="display:none;"></p>
+            </form>
+        </section>
+
+        <!-- Active Public Games Section -->
+        <section class="active-games">
+            <h2>Play with Others</h2>
+            <ul id="games-list">
+                @foreach (var game in Model.PublicGames)
+                {
+                    <li class="game-item">
+                        <div class="game-info">
+                            <p><strong>@game.SessionName</strong></p>
+                            <p>@game.GameChoice</p>
+                            <p>@game.UserCount / @game.RoomSize</p>
+                        </div>
+                        <button class="join-lobby-btn" data-session-code="@game.SessionCode">Join Room</button>
+                    </li>
+                }
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        async function tryJoinGame(sessionCode) {
+            const errorMessageEl = document.getElementById("errorMessage");
+            errorMessageEl.style.display = "none";
+
+            try {
+                const response = await fetch(`/JoinGame?handler=JoinPublicGame&sessionCode=${encodeURIComponent(sessionCode)}`, {
+                    method: "POST"
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    const lowerGame = data.gameChoice.toLowerCase();
+                    let destination = null;
+
+                    if (lowerGame === "likeability") {
+                        destination = "@Url.Page("/Likeability", new { sessionCode = "__sessionCode__" })".replace("__sessionCode__", encodeURIComponent(sessionCode));
+                    } else if (lowerGame === "wavelength" || lowerGame === "rating roundabout") {
+                        destination = "@Url.Page("/Wavelength", new { sessionCode = "__sessionCode__" })".replace("__sessionCode__", encodeURIComponent(sessionCode));
+                    }
+
+                    if (destination) {
+                        window.location.href = destination;
+                    } else {
+                        errorMessageEl.innerText = "Unknown game type.";
+                        errorMessageEl.style.display = "block";
+                    }
+                } else {
+                    errorMessageEl.innerText = data.error || "Unable to join the room.";
+                    errorMessageEl.style.display = "block";
+                    console.error("Join failed:", data.error);
+                }
+            } catch (error) {
+                console.error("Error joining game:", error);
+                errorMessageEl.innerText = "A network error occurred. Please try again.";
+                errorMessageEl.style.display = "block";
+            }
+        }
+
+        // Handler for Join Room button (manual code entry)
+        document.getElementById("joinRoomButton").addEventListener("click", function (event) {
+            event.preventDefault();
+            const sessionCode = document.getElementById("lobbyCodeInput").value.trim();
+            if (sessionCode) {
+                tryJoinGame(sessionCode);
+            } else {
+                const errorMessageEl = document.getElementById("errorMessage");
+                errorMessageEl.innerText = "Please enter a session code.";
+                errorMessageEl.style.display = "block";
+            }
+        });
+
+        // Optional: Clear error on typing
+        document.getElementById("lobbyCodeInput").addEventListener("input", () => {
+            document.getElementById("errorMessage").style.display = "none";
+        });
+
+        // Handler for clicking active game buttons
+        document.querySelectorAll(".join-lobby-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const sessionCode = this.getAttribute("data-session-code");
+                tryJoinGame(sessionCode);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+@page
+@model PartyParadox.Pages.WaveChooseNumModel
+@{
+    ViewData["Title"] = "WaveChooseNum page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/wavelength.css">
+    <link rel="stylesheet" href="../css/titleWave.css">
+    <link rel="stylesheet" href="../css/wavelength/game.css">
+    <link rel="stylesheet" href="../css/wavelength/textBubble.css">
+</head>
+
+<audio id="wave-audio" src="/audio/waveBackground.mp3" loop></audio>
+
+<style>
+    .bubble-speech {
+        width: 40px;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .blindedUser .user {
+        border: 2px dashed #f39c12;
+        background-color: #fffbea;
+        padding: 10px;
+        border-radius: 12px;
+    }
+</style>
+
+<body class="css-selector">
+    <div class="container">
+        <h2 class="title">
+            <span class="title-word title-word-1">Rating</span>
+            <span class="title-word title-word-2">Roundabout</span>
+        </h2>
+    </div>
+
+    <div class="content-section">
+        <!-- User Section -->
+        <div class="user-section">
+            <!-- Blinded User -->
+            <div class="blindedUser">
+                <div class="user">
+                    @if (Model.BlindedUser != null)
+                    {
+                        <img src="@Model.BlindedUser.UserImage" alt="@Model.BlindedUser.UserName" />
+                        <span>@Model.BlindedUser.UserName</span>
+                    }
+                    else
+                    {
+                        <img src="/images/default.png" alt="Unknown" />
+                        <span>Blinded User</span>
+                    }
+                </div>
+            </div>
+
+            <!-- Other Users -->
+            <div class="user-list">
+                @foreach (var user in Model.Users)
+                {
+                    // Skip showing the blind user in the regular list if present
+                    if (Model.BlindedUser != null && user.UserID == Model.BlindedUser.UserID)
+                    {
+                        continue;
+                    }
+                    <div class="user-message">
+                        <div class="user">
+                            <img src="@user.UserImage" alt="@user.UserName" />
+                            <span>@user.UserName</span>
+                        </div>
+                        <div class="bubble-speech bubble-left">?</div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Interaction Section -->
+        <div class="interaction">
+            <div class="timer" id="timer">60</div>
+            <h2>Vote on a number!</h2>
+
+            <!-- Standard Form Submission -->
+            <form method="post">
+                <input type="hidden" asp-for="SessionID" />
+                <label for="user-input">Enter a number (1-10):</label>
+                <input asp-for="UserResponse" type="number" min="1" max="10" id="user-input" placeholder="Enter a number (1-10)" />
+                <span asp-validation-for="UserResponse" class="text-danger"></span>
+                <button type="submit">Submit</button>
+            </form>
+
+            <ul id="answerList" class="text-log">
+                <!-- Answer list will be updated after form submission -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Optional: Timer logic to count down and perform a redirection after countdown.
+        document.addEventListener("DOMContentLoaded", function () {
+            let countdown = 45;
+            const timerElement = document.getElementById('timer');
+
+            const interval = setInterval(() => {
+                if (countdown > 0) {
+                    countdown--;
+                    timerElement.textContent = countdown;
+                } else {
+                    clearInterval(interval);
+                    // Replace with your real logic for current user
+                    const isCurrentUser = true;
+                    if (isCurrentUser) {
+                        window.location.href = "@Url.Page("/wavelength/AnswerU", new { sessionCode = Model.SessionCode })";
+                    } else {
+                       window.location.href = "@Url.Page("/wavelength/AnswerO", new { sessionCode = Model.SessionCode })";
+                    }
+                }
+            }, 1000);
+        });
+    </script>
+
+    <script src="js/audio.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+@page
+@{
+    ViewData["Title"] = "WaveBlindScore page";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/wavelength.css">
+    <link rel="stylesheet" href="../css/titleWave.css">
+    <link rel="stylesheet" href="../css/wavelength/game.css">
+    <link rel="stylesheet" href="../css/wavelength/textBubble.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <style>
+        .guess-history {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .guess-history div {
+            font-size: 1em;
+            padding: 5px;
+            opacity: 0;
+            animation: showRow 1s forwards ease-in-out;
+            animation-delay: var(--delay, 0s);
+        }
+
+        .answer {
+            color: green;
+        }
+
+        @@-webkit-keyframes showRow {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<audio id="wave-audio" src="/audio/waveBackground.mp3" loop></audio>
+
+<body class="css-selector">
+    <div class="container">
+        <h2 class="title">
+            <span class="title-word title-word-1">Rating</span>
+            <span class="title-word title-word-2">Roundabout</span>
+        </h2>
+    </div>
+
+    <div class="content-section">
+        <div class="user-section">
+            <!-- Blinded User -->
+            <div class="blindedUser">
+                <div class="user">
+                    <img src="blindUser.png" alt="Blind User">
+                    <span>Blinded User</span>
+                </div>
+            </div>
+            <h1>History of guesses</h1>
+
+            <div class="guess-history" id="guess-history">
+                <div style="--delay: 0s;"><strong>Question</strong></div>
+                <div style="--delay: 0s;" class="answer"><strong>Answer</strong></div>
+                <div style="--delay: 0s;"><strong>Number Guess</strong></div>
+
+                <!-- Row 1 -->
+                <div style="--delay: 2s;">What was the number?</div>
+                <div style="--delay: 2s;" class="answer">Your guess is 5</div>
+                <div style="--delay: 2s;">1</div>
+
+                <!-- Row 2 -->
+                <div style="--delay: 4s;">What was the number?</div>
+                <div style="--delay: 4s;" class="answer">Your guess is 7</div>
+                <div style="--delay: 4s;">1</div>
+
+                <!-- Row 3 -->
+                <div style="--delay: 6s;">What was the number?</div>
+                <div style="--delay: 6s;" class="answer">Your guess is 3</div>
+                <div style="--delay: 6s;">1</div>
+            </div>
+        </div>
+
+        <div class="interaction">
+            <div class="timer" id="timer">45</div>
+            <h2>What was the number?</h2>
+            <input type="number" id="user-input" placeholder="Enter a number (1-10)" min="1" max="10">
+            <button id="submit-button" onclick="submitAnswer()">Submit</button>
+            <div class="text-log" id="text-log"></div>
+        </div>
+    </div>
+
+    <script>
+        let countdown = 45;
+        const timerElement = document.getElementById('timer');
+
+        const interval = setInterval(() => {
+            if (countdown > 0) {
+                countdown--;
+                timerElement.textContent = countdown;
+                timerElement.style.opacity = 1; // Restore original timer behavior
+            } else {
+                clearInterval(interval);
+            }
+        }, 1000);
+
+        function submitAnswer() {
+            const inputElement = document.getElementById('user-input');
+            const input = inputElement.value;
+            const submitButton = document.getElementById('submit-button');
+
+            // Validate input
+            if (input >= 1 && input <= 10) {
+                const question = "What was the number?";
+                const answer = `Your guess is ${input}`;
+
+                const guessHistory = document.getElementById('guess-history');
+                let rowDelay = (guessHistory.children.length / 3) * 2 + 2; // Calculate delay based on existing rows
+
+                // Create new row in guess history
+                const questionDiv = document.createElement('div');
+                questionDiv.textContent = question;
+                questionDiv.style.setProperty('--delay', `${rowDelay}s`);
+
+                const answerDiv = document.createElement('div');
+                answerDiv.textContent = answer;
+                answerDiv.classList.add('answer');
+                answerDiv.style.setProperty('--delay', `${rowDelay}s`);
+
+                const guessDiv = document.createElement('div');
+                guessDiv.textContent = "1";
+                guessDiv.style.setProperty('--delay', `${rowDelay}s`);
+
+                guessHistory.appendChild(questionDiv);
+                guessHistory.appendChild(answerDiv);
+                guessHistory.appendChild(guessDiv);
+
+                inputElement.value = '';
+                submitButton.textContent = "Change Answer";
+            } else {
+                alert("Please enter a number between 1 and 10.");
+                inputElement.value = ''; // Clear the input
+            }
+        }
+    </script>
+</body>
+</html>

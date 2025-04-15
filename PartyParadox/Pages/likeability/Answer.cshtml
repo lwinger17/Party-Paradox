@@ -1,0 +1,123 @@
+@page
+@model PartyParadox.Pages.LikeAnsModel
+@{
+    ViewData["Title"] = "LikeAns Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="../css/likeability.css">
+    <link rel="stylesheet" href="../css/titleLike.css">
+    <link rel="stylesheet" href="../css/likeability/game.css">
+</head>
+
+<audio id="like-audio" src="/audio/likeBackground.mp3" loop></audio>
+
+<body class="css-selector">
+    <h1>
+        <span>L</span>
+        <span>I</span>
+        <span>K</span>
+        <span>E</span>
+        <span>A</span>
+        <span>B</span>
+        <span>I</span>
+        <span>L</span>
+        <span>I</span>
+        <span>T</span>
+        <span>Y</span>
+    </h1>
+
+    <div class="contentSection">
+        <div class="userList">
+            @foreach (var user in Model.Users)
+            {
+                <div class="user">
+                    <div class="player-circle" data-user-id="@user.ID" data-session-id="@Model.SessionCode">
+                        <img src="/@user.Image" alt="@user.Name">
+                        <span>@user.Name</span>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="interactionSection">
+            <div class="timer" id="timer">60</div>
+            <div class="progress-bar" id="progress-bar"></div>
+            <h2>
+                I like my <strong style="color: darkblue;">@Model.Word1</strong>
+                like I like my <strong style="color: darkblue;">@Model.Word2</strong>.
+            </h2>
+            <form id="responseForm" method="post">
+                <input type="hidden" name="UserName" value="@Model.CurrentUser">
+                <input type="hidden" name="Word1" value="@Model.Word1" />
+                <input type="hidden" name="Word2" value="@Model.Word2" />
+                <input type="text" id="user-input" asp-for="UserResponse" placeholder="Enter one response" maxlength="20" required>
+                <button type="submit" id="submitButton">Submit</button>
+            </form>
+            <div class="textLog" id="textLog">
+                <h3>Your Answer:</h3>
+                <ul id="answerList">
+                    @if (!string.IsNullOrEmpty(Model.UserResponse))
+                    {
+                        <li>@Model.UserResponse</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputField = document.getElementById("user-input");
+            const submitButton = document.getElementById("submitButton");
+            const answerList = document.getElementById("answerList");
+            const form = document.getElementById("responseForm");
+            let countdown = 45;
+            const timerElement = document.getElementById('timer');
+            const progressBar = document.getElementById('progress-bar');
+            let attemptMade = false;
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                if (attemptMade) {
+                    return;
+                }
+
+                const formData = new FormData(form);
+                fetch(form.action, {
+                    method: "POST",
+                    body: formData
+                }).then(response => response.text())
+                  .then(responseText => {
+                      const newResponse = document.createElement("li");
+                      newResponse.textContent = formData.get("UserResponse");
+                      answerList.appendChild(newResponse);
+                      inputField.disabled = true;
+                      submitButton.disabled = true;
+                      attemptMade = true;
+                  });
+            });
+
+            const interval = setInterval(() => {
+                if (countdown > 0) {
+                    countdown--;
+                    timerElement.textContent = countdown;
+                    progressBar.style.width = (countdown / 45) * 100 + "%";
+                } else {
+                    clearInterval(interval);
+                    window.location.href = "@Url.Page("/Likeability/View", new { sessionCode = Model.SessionCode })";
+                }
+            }, 1000);
+        });
+    </script>
+
+    <script src="js/audio.js"></script>
+</body>
+</html>

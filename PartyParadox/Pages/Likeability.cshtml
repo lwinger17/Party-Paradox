@@ -1,0 +1,182 @@
+@page
+@model PartyParadox.Pages.LikeabilityModel
+@{
+    ViewData["Title"] = "Likeability Game";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Paradox</title>
+    <link rel="stylesheet" href="css/likeability.css">
+    <link rel="stylesheet" href="css/titleLike.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/countdown.css">
+</head>
+
+<audio id="like-audio" src="/audio/likeBackground.mp3" loop></audio>
+
+<body class="css-selector">
+    <h1>
+        <span>L</span><span>I</span><span>K</span><span>E</span><span>A</span><span>B</span><span>I</span><span>L</span><span>I</span><span>T</span><span>Y</span>
+    </h1>
+
+    <div class="room-code">
+        Room Code: <span>@Model.SessionCode</span>
+    </div>
+
+    <div class="screen">
+        <div class="left-side">
+            @if (Model.Users.Any())
+            {
+                var host = Model.Users.FirstOrDefault();
+                if (host != default)
+                {
+                    <div class="profile" data-user-id="@host.ID" data-session-id="@Model.SessionCode">
+                        <img src="@host.Image" alt="@host.Name">
+                        <div class="username">@host.Name</div>
+                    </div>
+
+                    <button class="start-button"
+                            id="startGameBtn"
+                            data-url="@Url.Page("/Likeability/Prompt", new { sessionCode = Model.SessionCode })">
+                        Start Game
+                    </button>
+                }
+            }
+        </div>
+        <!---Other Users-->
+        <div class="right-side">
+            @foreach (var user in Model.Users.Skip(1))
+            {
+                <div class="player-circle" data-user-id="@user.ID" data-session-id="@Model.SessionCode">
+                    <img src="@user.Image" alt="@user.Name">
+                    <div class="banner">@user.Name</div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="chat-box" id="chat-box"></div>
+
+    <div class="chat-input-section">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Type your message">
+        <button class="chat-send-btn" id="send-btn">Send</button>
+    </div>
+
+    <section class="htp-section">
+        <div class="htp-box likeability-box">
+            <h3>Likeability</h3>
+            <p>
+                You know the saying "I like my men like I like my coffee"? Well, that's what this game is.
+            </p>
+            <ol>
+                <li>Each person gives a couple of random words. It can be anything from your friend Easton to a fish and even a building.</li>
+                <li>
+                    These words will be randomly shuffled together to make combinations such as...
+                    <ul>
+                        <li>"I like my books like I like my desserts."</li>
+                        <li>"I like breakfast like I like my shoes."</li>
+                        <li>"I like my bank account like I like horses."</li>
+                        <li>(Not everything has to include "my")</li>
+                    </ul>
+                </li>
+                <li>The goal is to find how these two are similar. Example answers: "Big," "Light," or "Made with Tears."</li>
+                <li>After answering, vote on your favorite and see who said what.</li>
+                <li>Points are rewarded based on the votes received.</li>
+                <li>The game ends when all words are used.</li>
+            </ol>
+        </div>
+    </section>
+
+    <a asp-page="/Index" class="back-button" onclick="leaveGame()">
+        <img src="img/back.png" alt="Back">
+    </a>
+
+    <input type="hidden" name="__RequestVerificationToken" id="csrf-token" value="@Html.AntiForgeryToken()" />
+
+    <script src="js/chat.js"></script>
+    <script src="js/redirectGameL.js"></script>
+    <script>
+        const currentUserID = document.querySelector('.profile')?.getAttribute('data-user-id');
+
+        function submitGameData() {
+            fetch('@Url.Page("/Likeability/GetUsers", new { sessionCode = Model.SessionCode })')
+                .then(response => response.json())
+                .then(users => {
+                    fetch('@Url.Page("/Likeability")', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'RequestVerificationToken': document.getElementById('csrf-token').value
+                        },
+                        body: JSON.stringify({ users: users })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            console.log('Game data submitted successfully');
+                        } else {
+                            console.log('Error submitting game data');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+                });
+        }
+
+                function scrollChatToBottom() {
+                    let chatBox = document.getElementById("chat-box");
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }
+
+
+        function leaveGame() {
+            if (!currentUserID) {
+                console.error("User ID not found");
+                return;
+            }
+
+            fetch('/Likeability/Leave', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userID: currentUserID })
+            }).then(() => {
+                window.location.href = "/Index";
+            }).catch(err => console.error("Error leaving game:", err));
+        }
+    </script>
+
+    <script>
+                function submitGameData() {
+            console.log("Fetching users for session:", "@Model.SessionCode");
+
+            fetch('@Url.Page("/Likeability/GetUsers", new { sessionCode = Model.SessionCode })')
+                .then(response => response.json())
+                .then(users => {
+                    console.log("Users retrieved:", users);
+
+                    fetch('@Url.Page("/Likeability")', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'RequestVerificationToken': document.getElementById('csrf-token').value
+                        },
+                        body: JSON.stringify({ users: users })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            console.log('? Game data submitted successfully:', data);
+                        } else {
+                            console.log('? Error submitting game data:', data.message);
+                        }
+                    })
+                    .catch(error => console.error('? Error:', error));
+                })
+                .catch(error => console.error('? Error fetching users:', error));
+        }
+</script>
+</body>
+</html>
